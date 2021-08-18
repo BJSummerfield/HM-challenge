@@ -50,13 +50,8 @@ class Cart
 
 end
 
-# cart = Cart.new
-# cart.parse("milk,milk, bread,banana,bread,bread,bread,milk,apple")
-# cart.total
-# cart.items.each do |k,v|
-#   p k
-#   p cart.items[k][:total].to_s("F")
-#   p "**"
-# end
+cart = Cart.new
+cart.parse("milk,milk, bread,banana,bread,bread,bread,milk,apple")
+p cart.total
 
 
