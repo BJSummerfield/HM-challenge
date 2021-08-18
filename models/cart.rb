@@ -1,8 +1,10 @@
+require "./pricing_table"
+
 class Cart
   attr_accessor :items, :total, :savings
 
   def initialize(params = {})
-    @items = params.fetch(:items, Array.new)
+    @items = params.fetch(:items, Hash.new)
     @total = params.fetch(:total, nil)
     @savings = params.fetch(:savings, nil)
   end
