@@ -36,7 +36,3 @@ PRICING_TABLE = {
     :sale_price => nil
   }
 }
-
-
-
-# p (PRICING_TABLE['milk'][:price] + BigDecimal("3.00")).to_s("F")

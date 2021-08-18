@@ -1,5 +1,3 @@
-require "./pricing_table"
-
 class Cart
   attr_accessor :items
 
@@ -47,11 +45,4 @@ class Cart
       set_item_total(item)
     end
   end
-
 end
-
-cart = Cart.new
-cart.parse("milk,milk, bread,banana,bread,bread,bread,milk,apple")
-p cart.total
-
-

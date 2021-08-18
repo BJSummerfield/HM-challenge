@@ -7,6 +7,3 @@ cart = Cart.new
 cart.parse(items)
 cart.total
 ViewCart.render(cart)
-
-
-
