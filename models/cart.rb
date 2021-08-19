@@ -7,7 +7,7 @@ class Cart
     @items = params[:items] || {}
   end
 
-  def create(item)
+  def add_item(item)
     items[item.to_sym] = {
       quantity: 1,
       total: 0,
@@ -15,18 +15,17 @@ class Cart
     }
   end
 
-  def increment(item)
+  def increment_item(item)
     items[item][:quantity] += 1
   end
 
   def increment_or_create(item)
-    return increment(item) if items.key?(item)
-    create(item)
+    items[item] ? increment_item(item) : add_item(item)
   end
 
   def parse(string)
     string.downcase.gsub(" ", "").split(",").each do |item|
-      increment_or_create(item)
+      increment_or_create(item.to_sym)
     end
   end
 
