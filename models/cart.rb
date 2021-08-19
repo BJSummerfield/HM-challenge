@@ -9,9 +9,7 @@ class Cart
 
   def add_item(item)
     items[item.to_sym] = {
-      quantity: 1,
-      total: 0,
-      discount: 0
+      quantity: 1
     }
   end
 
@@ -19,31 +17,34 @@ class Cart
     items[item][:quantity] += 1
   end
 
-  def increment_or_create(item)
+  def increment_or_add(item)
     items[item] ? increment_item(item) : add_item(item)
   end
 
   def parse(string)
     string.downcase.gsub(" ", "").split(",").each do |item|
-      increment_or_create(item.to_sym)
+      increment_or_add(item.to_sym)
     end
   end
 
-  def set_item_total(item)
+  def get_item_total(item)
     this_item = items[item]
-    this_item[:total] = (PRICING_TABLE[item][:price] * this_item[:quantity]) - this_item[:discount]
+    (PRICING_TABLE[item][:price] * this_item[:quantity]) - get_item_discount(item)
   end
 
-  def set_item_discount(item)
-    this_item = items[item]
+  def get_item_discount(item)
     table_item = PRICING_TABLE[item]
-    this_item[:discount] = table_item[:sale_price] * (this_item[:quantity] / table_item[:sale_quantity])
+    table_item[:sale_price] > 0 ? table_item[:sale_price] * (items[item][:quantity] / table_item[:sale_quantity]) : 0
   end
 
-  def total
-    items.each do |item, qty|
-      set_item_discount(item) if PRICING_TABLE[item][:sale] == true
-      set_item_total(item)
-    end
+  def get_total_cost
+    items.keys.each.reduce(0) { |sum, item| sum += get_item_total(item) }
+  end
+
+  def get_total_discount
+    items.keys.each.reduce(0) {|sum, item| sum += get_item_discount(item) }
   end
 end
+
+# cart = Cart.new({:items => {:milk=>{:quantity=>3}, :apple=>{:quantity=>1}, :banana=>{:quantity=>1}, :bread=>{:quantity=>2}}})
+# p cart.get_total_discount
