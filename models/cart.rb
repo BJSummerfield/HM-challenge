@@ -1,15 +1,17 @@
+require_relative 'pricing_table.rb'
+
 class Cart
   attr_accessor :items
 
   def initialize(params = {})
-    @items = params.fetch(:items, Hash.new)
+    @items = params[:items] || {}
   end
 
   def create(item)
-    items[item] = {
-      :quantity => 1,
-      :total => nil,
-      :discount => 0
+    items[item.to_sym] = {
+      quantity: 1,
+      total: 0,
+      discount: 0
     }
   end
 

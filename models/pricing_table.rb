@@ -11,28 +11,28 @@ require "bigdecimal"
 
 
 PRICING_TABLE = {
-  "milk" => {
-    :price => BigDecimal("3.97"),
-    :sale => true,
-    :sale_quantity => 2,
-    :sale_price => BigDecimal("2.94")
+  milk: {
+    price: BigDecimal("3.97"),
+    sale: true,
+    sale_quantity: 2,
+    sale_price: BigDecimal("2.94")
   },
-  "bread" => {
-    :price => BigDecimal("2.17"),
-    :sale => true,
-    :sale_quantity => 3,
-    :sale_price => BigDecimal("0.51")
+  bread: {
+    price: BigDecimal("2.17"),
+    sale: true,
+    sale_quantity: 3,
+    sale_price: BigDecimal("0.51")
   },
-  "banana" => {
-    :price => BigDecimal("0.99"),
-    :sale => false,
-    :sale_quantity => nil,
-    :sale_price => nil
+  banana: {
+    price: BigDecimal("0.99"),
+    sale: false,
+    sale_quantity: nil,
+    sale_price: nil
   },
-  "apple" => {
-    :price => BigDecimal(".89"),
-    :sale => false,
-    :sale_quantity => nil,
-    :sale_price => nil
+  apple: {
+    price: BigDecimal(".89"),
+    sale: false,
+    sale_quantity: nil,
+    sale_price: nil
   }
 }

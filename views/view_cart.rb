@@ -6,7 +6,7 @@ class ViewCart
     cart.items.each do |key,value|
       key_length = key.length
       quantity_length = value[:quantity].to_s.length
-      puts key.capitalize() + " " * (12 - key_length) + value[:quantity].to_s + " " * (12 - quantity_length) + "$" + value[:total].to_s("F")
+      puts key.to_s.capitalize() + " " * (12 - key_length) + value[:quantity].to_s + " " * (12 - quantity_length) + "$" + value[:total].to_s("F")
       total += value[:total]
       savings += value[:discount]
     end
