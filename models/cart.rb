@@ -45,6 +45,3 @@ class Cart
     items.keys.each.reduce(0) {|sum, item| sum += get_item_discount(item) }
   end
 end
-
-# cart = Cart.new({:items => {:milk=>{:quantity=>3}, :apple=>{:quantity=>1}, :banana=>{:quantity=>1}, :bread=>{:quantity=>2}}})
-# p cart.get_total_discount

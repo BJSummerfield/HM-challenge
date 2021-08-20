@@ -22,7 +22,7 @@ class ViewCart
 
   def header
     [
-      "",
+      nil,
       "Item      Quantity      Price",
       "------------------------------------"
     ].join("\n")
@@ -30,7 +30,7 @@ class ViewCart
 
   def footer(total, discount)
     [
-      "",
+      nil,
       "Total price : $#{total.to_s("F")}",
       "You saved $#{discount.to_s("F")}"
     ].join("\n")

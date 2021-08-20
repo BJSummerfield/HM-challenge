@@ -9,7 +9,6 @@ require "bigdecimal"
 # Banana    $0.99
 # Apple     $0.89
 
-
 PRICING_TABLE = {
   milk: {
     price: BigDecimal("3.97"),
